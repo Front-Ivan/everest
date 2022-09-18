@@ -1,12 +1,10 @@
 <template>
-  <h1>Main Page</h1>
+  <div></div>
 </template>
 
 <script>
 export default {
-  name: "MainPage",
-  components: {}
-
+  name: "FooterComponent"
 }
 </script>
 
