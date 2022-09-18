@@ -1,9 +1,7 @@
 <template>
-  <div>
     <header-component/>
     <slot></slot>
     <footer-component/>
-  </div>
 </template>
 
 <script>
