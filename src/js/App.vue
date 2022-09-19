@@ -77,4 +77,20 @@ select {
   width: 1320px;
   margin: 0 auto;
 }
+
+.d-flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.col {
+  flex-direction: column;
+}
 </style>
