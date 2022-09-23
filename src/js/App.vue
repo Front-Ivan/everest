@@ -32,6 +32,24 @@ blockquote,
 dl,
 dd {
   margin: 0;
+  color: #0E192E;
+}
+
+a {
+  text-decoration: none;
+  color: #0E192E;
+}
+
+span,
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: inherit;
 }
 
 body {
@@ -43,16 +61,12 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+  overflow-x: hidden;
 }
 
 ul, ol {
   list-style: none;
   padding: 0;
-}
-
-a {
-  text-decoration: none;
-  color: #0E192E;
 }
 
 img {
@@ -74,7 +88,8 @@ select {
 /*ОБНУЛЯЮЩИЕ СТИЛИ*/
 
 .container {
-  width: 1320px;
+  max-width: 1320px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -92,5 +107,27 @@ select {
 
 .col {
   flex-direction: column;
+}
+
+.sc-title {
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 52px;
+  text-transform: uppercase;
+  color: #0E192E;
+
+  &_mb48 {
+    margin-bottom: 48px;
+  }
+}
+
+.mt160 {
+  margin-top: 160px;
+}
+
+@media screen and (max-width: 1350px) {
+  .container {
+    padding: 0 10px;
+  }
 }
 </style>
