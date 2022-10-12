@@ -21,9 +21,9 @@
 export default {
   name: "CatalogItemComponent",
   props: ['category', 'catalog', 'index'],
-  computed: {},
-  mounted() {
-  }
+  setup() {
+
+  },
 }
 </script>
 

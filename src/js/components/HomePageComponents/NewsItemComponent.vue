@@ -34,10 +34,9 @@
 export default {
   name: "NewsItemComponent",
   props: ['item', 'news', 'index'],
-  data() {
-    return {}
-  },
-  computed: {}
+  setup() {
+
+  }
 }
 </script>
 

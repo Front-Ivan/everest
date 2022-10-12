@@ -34,6 +34,17 @@
 
 <script>
 
+import {
+  ref,
+  // reactive,
+  // toRefs,
+  // isRef,
+  // isReactive,
+  // computed,
+  // watch
+  onMounted,
+} from 'vue'
+
 import MainLayoutComponent from "@/js/layouts/MainLayoutComponent";
 import SliderSwiperComponent from "@/js/components/SliderSwiperComponent";
 import CatalogItemComponent from "@/js/components/HomePageComponents/CatalogItemComponent";
@@ -48,35 +59,41 @@ export default {
     CatalogItemComponent,
     NewsItemComponent,
   },
-  data() {
-    return {
-      catalog: null,
-      news: null,
-    }
-  },
-  methods: {
-    async fetchCatalogCategories() {
+  setup() {
+
+    const catalog = ref(null)
+    const news = ref(null)
+
+    const fetchCatalogCategories = async function () {
       try {
         const {data} = await axios.get('https://ever-est-default-rtdb.firebaseio.com/HomePage/catalog/categories.json');
-        this.catalog = data;
-        console.log(this.catalog)
-      } catch (e) {
-        console.error(e)
-      }
-    },
-    async fetchNews() {
-      try {
-        const {data} = await axios.get('https://ever-est-default-rtdb.firebaseio.com/HomePage/news.json');
-        this.news = data;
-        console.log(data)
+        catalog.value = data;
+        console.log(catalog)
       } catch (e) {
         console.error(e)
       }
     }
-  },
-  mounted() {
-    this.fetchCatalogCategories();
-    this.fetchNews();
+
+    const fetchNews = async function () {
+      try {
+        const {data} = await axios.get('https://ever-est-default-rtdb.firebaseio.com/HomePage/news.json');
+        news.value = data;
+      } catch (e) {
+        console.error(e)
+      }
+    }
+
+    onMounted(() => {
+      fetchCatalogCategories()
+      fetchNews()
+    })
+
+    return {
+      catalog,
+      news,
+      fetchCatalogCategories,
+      fetchNews,
+    }
   }
 }
 </script>
@@ -85,6 +102,7 @@ export default {
 .home {
   margin-top: 32px;
 }
+
 .catalog {
   &_y160 {
     margin: 160px 0;
