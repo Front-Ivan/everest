@@ -3,7 +3,7 @@
     <div class="catalog__category-img catalog__category-img_mb25">
       <img :src="category.img" :alt="category.alt">
     </div>
-    <div class="catalog__category-title catalog__category-title_mb24">
+    <div class="catalog__category-title catalog__category-title_mb24" @click="router.push(`/catalog/${category.id}`)">
       <span>{{ category.title }}</span>
     </div>
     <figcaption class="catalog__category-description">
@@ -18,11 +18,19 @@
 </template>
 
 <script>
+import { useRouter, useRoute } from 'vue-router'
+
 export default {
   name: "CatalogItemComponent",
   props: ['category', 'catalog', 'index'],
   setup() {
+    const router = useRouter()
+    const route = useRoute()
 
+    return {
+      router,
+      route,
+    }
   },
 }
 </script>

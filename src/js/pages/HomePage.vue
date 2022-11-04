@@ -45,6 +45,8 @@ import {
   onMounted,
 } from 'vue'
 
+import { useStore } from 'vuex'
+
 import MainLayoutComponent from "@/js/layouts/MainLayoutComponent";
 import SliderSwiperComponent from "@/js/components/SliderSwiperComponent";
 import CatalogItemComponent from "@/js/components/HomePageComponents/CatalogItemComponent";
@@ -60,6 +62,7 @@ export default {
     NewsItemComponent,
   },
   setup() {
+    const store = useStore()
 
     const catalog = ref(null)
     const news = ref(null)
@@ -86,13 +89,14 @@ export default {
     onMounted(() => {
       fetchCatalogCategories()
       fetchNews()
+
     })
 
     return {
       catalog,
       news,
-      fetchCatalogCategories,
-      fetchNews,
+
+      store,
     }
   }
 }

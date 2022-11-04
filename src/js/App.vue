@@ -119,6 +119,11 @@ select {
   &_mb48 {
     margin-bottom: 48px;
   }
+
+  &_y {
+    margin-top: 68px;
+    margin-bottom: 48px;
+  }
 }
 
 .mt160 {
