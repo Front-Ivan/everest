@@ -2,7 +2,7 @@
   <header class="header">
     <div class="container">
       <section class="header__content">
-        <div class="header__logo">
+        <div class="header__logo" @click="router.push('/')">
           <svg width="190" height="107" viewBox="0 0 190 107" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M123.282 79.3733H124.352C126.087 79.3733 127.581 79.0441 128.832 78.3857C130.084 77.7272 131.04 76.8031 131.701 75.6133C132.374 74.4119 132.71 72.9968 132.71 71.368C132.71 69.7507 132.374 68.3183 131.701 67.0707C131.04 65.8116 130.084 64.8239 128.832 64.1077C127.581 63.3915 126.087 63.0334 124.352 63.0334H115.568V67.6574L123.282 79.3733ZM120.739 67.244V75.1627H124.352C125.084 75.1627 125.68 75.001 126.14 74.6776C126.613 74.3541 126.955 73.9094 127.168 73.3433C127.38 72.7657 127.486 72.1189 127.486 71.4026C127.486 70.6749 127.374 69.9991 127.15 69.3753C126.937 68.74 126.601 68.2259 126.14 67.8332C125.692 67.4404 125.096 67.244 124.352 67.244H120.739Z" fill="#2A79CC"/>
             <path d="M150.138 88.2797V84.0864H140.54V77.346H148.632V73.274H140.54V67.2613H150.102V63.0507H135.351V88.2797H150.138Z" fill="#2A79CC"/>
@@ -131,8 +131,17 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
+
 export default {
-  name: "HeaderComponent"
+  name: "HeaderComponent",
+  setup() {
+    const router = useRouter()
+
+    return {
+      router
+    }
+  }
 }
 </script>
 

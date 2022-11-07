@@ -52,11 +52,13 @@ export default {
     }
 
     &-title {
+      display: inline-block;
       font-weight: 800;
       font-size: 21px;
       line-height: 24px;
       text-transform: uppercase;
       color: #0E192E;
+      cursor: pointer;
 
       &_mb24 {
         margin-bottom: 24px;

@@ -1,7 +1,7 @@
 export default {
     namespaced: true,
     state: {
-        catalog: [
+        catalogItems: [
             [
                 "Алкидные эмали",
                 "Акриловые эмали",
@@ -155,12 +155,51 @@ export default {
                     "title": "Хозтовары"
                 }
             ]
-        ]
+        ],
+        catalogItemsImages: [
+            [
+                '/assets/img/CatalogPage/Enamels/alkyd-enamels.svg',
+                '/assets/img/CatalogPage/Enamels/acrylic-enamels.svg',
+                '/assets/img/CatalogPage/Enamels/nitro-enamels.svg',
+                '/assets/img/CatalogPage/Enamels/oil-paints.svg',
+                '/assets/img/CatalogPage/Enamels/special-enamels.svg',
+                '/assets/img/CatalogPage/Enamels/hammer-paints.svg',
+                '/assets/img/CatalogPage/Enamels/primers-and-primer-enamels.svg',
+                '/assets/img/CatalogPage/Enamels/solvents.svg',
+            ],
+            [
+
+            ],
+            [
+
+            ],
+            [
+
+            ],
+            [
+
+            ],
+            [
+
+            ],
+            [
+
+            ],
+            [
+
+            ],
+            [
+
+            ],
+        ],
     },
     getters: {
-        getCatalog(state) {
-            return state.catalog
-        }
+        getCatalogItems(state) {
+            return state.catalogItems
+        },
+        getCatalogItemsImages(state) {
+            return state.catalogItemsImages
+        },
     },
     mutations: {
 

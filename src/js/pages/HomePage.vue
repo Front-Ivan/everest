@@ -67,7 +67,7 @@ export default {
   setup() {
     const store = useStore()
 
-    const catalog = computed(() => store.getters["Catalogs/getCatalog"])
+    const catalog = computed(() => store.getters["Catalogs/getCatalogItems"])
     const news = reactive([
       [
         [
