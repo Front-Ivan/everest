@@ -35,15 +35,18 @@
 <script>
 
 import {
-  ref,
-  // reactive,
+  // ref,
+  reactive,
   // toRefs,
   // isRef,
   // isReactive,
   // computed,
   // watch
-  onMounted,
+  // onMounted,
+    computed,
 } from 'vue'
+
+// import { useGetters } from 'vuex-composition-helpers'
 
 import { useStore } from 'vuex'
 
@@ -51,7 +54,7 @@ import MainLayoutComponent from "@/js/layouts/MainLayoutComponent";
 import SliderSwiperComponent from "@/js/components/SliderSwiperComponent";
 import CatalogItemComponent from "@/js/components/HomePageComponents/CatalogItemComponent";
 import NewsItemComponent from "@/js/components/HomePageComponents/NewsItemComponent";
-import axios from 'axios'
+// import axios from 'axios'
 
 export default {
   name: "HomePage",
@@ -64,33 +67,65 @@ export default {
   setup() {
     const store = useStore()
 
-    const catalog = ref(null)
-    const news = ref(null)
-
-    const fetchCatalogCategories = async function () {
-      try {
-        const {data} = await axios.get('https://ever-est-default-rtdb.firebaseio.com/HomePage/catalog/categories.json');
-        catalog.value = data;
-        console.log(catalog)
-      } catch (e) {
-        console.error(e)
-      }
-    }
-
-    const fetchNews = async function () {
-      try {
-        const {data} = await axios.get('https://ever-est-default-rtdb.firebaseio.com/HomePage/news.json');
-        news.value = data;
-      } catch (e) {
-        console.error(e)
-      }
-    }
-
-    onMounted(() => {
-      fetchCatalogCategories()
-      fetchNews()
-
-    })
+    const catalog = computed(() => store.getters["Catalogs/getCatalog"])
+    const news = reactive([
+      [
+        [
+          "# Акзонобел",
+          "# Интерьерные краски"
+        ],
+        {
+          "alt": "img1",
+          "date": "04.05.2022",
+          "id": "0",
+          "img": "/assets/img/HomePage/news-img1.png",
+          "title": "Dulux Diamond Max Protect",
+          "views": "121"
+        }
+      ],
+      [
+        [
+          "# Bostik",
+          "# Клей"
+        ],
+        {
+          "alt": "img2",
+          "date": "30.04.2022",
+          "id": "1",
+          "img": "/assets/img/HomePage/news-img2.png",
+          "title": "Новинка! Быстросохнущий монтажный клей MAMUT",
+          "views": "581"
+        }
+      ],
+      [
+        [
+          "# АКЗОНОБЕЛЬ",
+          "# Dulux"
+        ],
+        {
+          "alt": "img3",
+          "date": "20.04.2022",
+          "id": "2",
+          "img": "/assets/img/HomePage/news-img3.png",
+          "title": "Сканер цвета Dulux — лидерам отрасли!",
+          "views": "1 089"
+        }
+      ],
+      [
+        [
+          "# Акция",
+          "# Сайвер"
+        ],
+        {
+          "alt": "img4",
+          "date": "05.03.2022",
+          "id": "3",
+          "img": "/assets/img/HomePage/news-img4.png",
+          "title": "Негорючие системы окраски КМ0 - Dulux Diamond Max Protect",
+          "views": "1 821"
+        }
+      ]
+    ])
 
     return {
       catalog,

@@ -1,13 +1,12 @@
-import Vue from 'vue'
-import Vuex from 'vuex';
+import { createStore } from "vuex";
 
-Vue.use(Vuex);
-
+//import modules
 import Catalogs from "@/js/store/modules/catalogs";
 
-export default new Vuex.Store({
+//
+
+export default createStore({
     modules: {
         Catalogs,
-
     }
 })
