@@ -9,8 +9,8 @@
             <catalog-item-component
                 v-for="(category, idx) in catalog"
                 :key="category[category.length - 1].id"
-                :category="category[category.length - 1]"
-                :catalog="category"
+                :category="category[1]"
+                :catalog="category[0]"
                 :index="idx"
             />
           </div>

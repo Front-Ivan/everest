@@ -10,9 +10,8 @@
       <p
           class="catalog__category-description-item"
           v-for="(it, idx) in catalog"
-          v-show="typeof it !== 'object'"
           :key="idx"
-      >{{ it }}</p>
+      >{{ it.name }}</p>
     </figcaption>
   </figure>
 </template>
